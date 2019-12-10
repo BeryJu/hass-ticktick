@@ -1,13 +1,13 @@
 """Config flow for TickTick integration."""
 import logging
 
-import voluptuous as vol
+from requests.exceptions import RequestException
 
+import voluptuous as vol
 from homeassistant import config_entries, core, exceptions
 
-from .const import DOMAIN, TICKTICK_HOST, AUTH_URL
-from .api import login
-from requests.exceptions import RequestException
+from .api import TickTick
+from .const import AUTH_URL, DOMAIN, TICKTICK_HOST
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -20,7 +20,8 @@ async def validate_input(hass: core.HomeAssistant, data):
     Data has the keys from DATA_SCHEMA with values provided by the user.
     """
     try:
-        login(data.get('username'), data.get('password'))
+        client = TickTick()
+        client.login(data.get('username'), data.get('password'))
     except RequestException as exc:
         raise CannotConnect from exc
     except ValueError as exc:

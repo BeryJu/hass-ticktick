@@ -5,5 +5,9 @@ add_task:
       description: Title of the task to add
     content:
       description: Content of the task to add.
+    project:
+      description: Id of the project to add the task to. Defaults to "Inbox".
     due_date:
       description: Datetime when this task is due.
+get_projects:
+  description: "Get a List of all Projects and their IDs"
