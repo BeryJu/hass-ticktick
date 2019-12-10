@@ -39,17 +39,18 @@ A Home Assistant automation to receive and process Google Assistant inputs via I
 
 ```yaml
 automation:
-  - alias: "IFTTT: Google Assistant to TickTick"
+  - id: ifttt_google_assistant_ticktock
+    alias: "IFTTT: Google Assistant to TickTick"
     trigger:
       platform: event
       event_type: ifttt_webhook_received
       event_data:
         action: call_service
     action:
-      service_template: "{{ trigger.event.data.service }}"
-      data_template:
-        title: "{{ trigger.event.data.title }}"
-        project: "{{ trigger.event.data.project }}"
+      - service_template: "{{ trigger.event.data.service }}"
+        data_template:
+          title: "{{ trigger.event.data.title }}"
+          project: "{{ trigger.event.data.project }}"
 ```
 
 ### Missing features:
