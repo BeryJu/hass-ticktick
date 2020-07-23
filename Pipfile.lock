@@ -165,11 +165,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:565e016764c3ea6b879a6728bdeed4d76e1384bc0eee237b2146318786e2502d",
-                "sha256:defbc98bd889fa58d404d04b38be7991bbafeb3191375149004408a6f3987154"
+                "sha256:bcc48018b97a1cc563e52753a771a1807e156889c543672409996bdcc59fa91f",
+                "sha256:c9e842d5ad5700414f84d6cf72935024bb0379ed2b77348b707c50872735b5e5"
             ],
             "index": "pypi",
-            "version": "==0.112.5"
+            "version": "==0.113.0"
         },
         "idna": {
             "hashes": [
@@ -424,10 +424,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527",
-                "sha256:88206b0eb87e6d677d424843ac5209e3fb9d0190d0ee169599165ec25e9d9115"
+                "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a",
+                "sha256:e7983572181f5e1522d9c98453462384ee92a0be7fac5f1413a1e35c56cc0461"
             ],
-            "version": "==1.25.9"
+            "version": "==1.25.10"
         },
         "voluptuous": {
             "hashes": [
@@ -437,9 +437,10 @@
         },
         "voluptuous-serialize": {
             "hashes": [
-                "sha256:740cd00ce2ecf0f3345d550163fdd2f20de2e0a60c3c678450e68314c2f592f5"
+                "sha256:44799b2b7fdba19279258f102ccd0e92ee2c10ff5eda5f393d4a71247b6dfa92",
+                "sha256:c6ba17cb0301c18e8b955d89b85fa4aa05c05c80ab1e4873810900f757dceae4"
             ],
-            "version": "==2.3.0"
+            "version": "==2.4.0"
         },
         "wrapt": {
             "hashes": [
