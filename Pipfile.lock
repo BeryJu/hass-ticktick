@@ -165,11 +165,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:52877cd6812bc7fa0494f7edc0e1030838d7d27eea016bde220ec484332315ee",
-                "sha256:fac1f0743643d9ea0f9d4e7e0057e33ed7e1e12dec7930cd1de41f3b4df27db2"
+                "sha256:558dab3c0b23014ba8f316f31cf07836233b5c3d8581f0c9e22c1dfef709e13a",
+                "sha256:6e979dcc9244940b5e782ff9e3f2728338adc0385382d95b4dbc1a61721890d5"
             ],
             "index": "pypi",
-            "version": "==0.114.1"
+            "version": "==0.114.2"
         },
         "idna": {
             "hashes": [
