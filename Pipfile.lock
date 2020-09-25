@@ -173,11 +173,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:35694a837ef0882b6c0a7e4eacdc5dfd27105011a502ef04d8f6b39f9625816e",
-                "sha256:ce76bb601a33917a5783800556dc62a2a1d5f95b3b281f0c6019c4714b23f225"
+                "sha256:a7e3b69890cc98111654a0bf8f3918e78f2b2ad3c1071f5d6b3f503e019e3a1a",
+                "sha256:c83ba6f3ef72b62e8dae0056300d571a779a4adb4659bdfc10a1cb97d2e990af"
             ],
             "index": "pypi",
-            "version": "==0.115.0"
+            "version": "==0.115.2"
         },
         "idna": {
             "hashes": [
@@ -196,10 +196,10 @@
         },
         "isort": {
             "hashes": [
-                "sha256:171c5f365791073426b5ed3a156c2081a47f88c329161fd28228ff2da4c97ddb",
-                "sha256:ba91218eee31f1e300ecc079ef0c524cea3fc41bfbb979cbdf5fd3a889e3cfed"
+                "sha256:6187a9f1ce8784cbc6d1b88790a43e6083a6302f03e9ae482acc0f232a98c843",
+                "sha256:c16eaa7432a1c004c585d79b12ad080c6c421dd18fe27982ca11f95e6898e432"
             ],
-            "version": "==5.5.2"
+            "version": "==5.5.3"
         },
         "jinja2": {
             "hashes": [
