@@ -7,7 +7,8 @@ from requests import Session
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
-
+from dateutil import parser
+from datetime import datetime, timedelta
 from .api import TickTick
 from .const import DOMAIN
 
@@ -19,7 +20,16 @@ def handle_add_task(client: TickTick) -> Callable:
         title = call.data.get('title', '')
         content = call.data.get('content', '')
         project = call.data.get('project', '')
-        due_date = call.data.get('due_date', '')
+
+        due_date_raw = call.data.get('due_date', '')
+        due_date = None
+        if due_date_raw != "":
+            if due_date_raw.startswith("+"):
+                # If due_date starts with +, use it as an offest to now
+                due_date = datetime.now() + timedelta(minutes=int(due_date_raw))
+            else:
+                # Otherwise we try to parse it absolutely
+                due_date = parser.parse(due_date_raw)
         client.add_task(title, content, project, due_date)
     return handler
 

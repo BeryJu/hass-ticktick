@@ -47,16 +47,14 @@ class TickTick:
                  project: str = '',
                  due_date: datetime.datetime = None) -> bool:
         # Create Task
-        if not due_date:
-            # If there's no due_date set, we default to today
-            due_date = datetime.datetime.now()
         data = {
             'sortOrder': 1,
             'title': task_title,
-            'dueDate': TickTick.datetime_to_json(due_date),
             'content': content,
             'projectId': project
         }
+        if due_date:
+            data['dueDate'] = TickTick.datetime_to_json(due_date)
         resp = self._session.post(
             f"https://{TICKTICK_HOST}{ADD_TASK_URL}", json=data)
         if resp.status_code == 200:
