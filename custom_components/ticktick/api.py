@@ -18,11 +18,13 @@ class TickTick:
 
     def login(self, username: str, password: str):
         """Log into ticktick api. ValueError is thrown when credentials are incorrect"""
-        resp = self._session.post(f"https://{TICKTICK_HOST}{AUTH_URL}",
-                                  json={
-                                      'username': username,
-                                      'password': password,
-                                  })
+        resp = self._session.post(
+            f"https://{TICKTICK_HOST}{AUTH_URL}",
+            json={
+                "username": username,
+                "password": password,
+            },
+        )
         if resp.status_code != 200:
             raise ValueError("Invalid credentials")
 
@@ -34,29 +36,29 @@ class TickTick:
 
     def get_projects(self) -> Dict[str, str]:
         """Return a dict of all project IDs and their names"""
-        resp = self._session.get(
-            f"https://{TICKTICK_HOST}{PROJECT_URL}")
+        resp = self._session.get(f"https://{TICKTICK_HOST}{PROJECT_URL}")
         projects = {}
-        for raw_project in resp.json().get('projectProfiles'):
-            projects[raw_project.get('id')] = raw_project.get('name')
+        for raw_project in resp.json().get("projectProfiles"):
+            projects[raw_project.get("id")] = raw_project.get("name")
         return projects
 
-    def add_task(self,
-                 task_title: str,
-                 content: str = '',
-                 project: str = '',
-                 due_date: datetime.datetime = None) -> bool:
+    def add_task(
+        self,
+        task_title: str,
+        content: str = "",
+        project: str = "",
+        due_date: datetime.datetime = None,
+    ) -> bool:
         # Create Task
         data = {
-            'sortOrder': 1,
-            'title': task_title,
-            'content': content,
-            'projectId': project
+            "sortOrder": 1,
+            "title": task_title,
+            "content": content,
+            "projectId": project,
         }
         if due_date:
-            data['dueDate'] = TickTick.datetime_to_json(due_date)
-        resp = self._session.post(
-            f"https://{TICKTICK_HOST}{ADD_TASK_URL}", json=data)
+            data["dueDate"] = TickTick.datetime_to_json(due_date)
+        resp = self._session.post(f"https://{TICKTICK_HOST}{ADD_TASK_URL}", json=data)
         if resp.status_code == 200:
             return True
         return False
