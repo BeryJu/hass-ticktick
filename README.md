@@ -4,7 +4,7 @@ This integration adds a custom service `ticktick.add_task`, which allows you to 
 
 ## Installation
 
-Add this repository to [HACS](https://hacs.xyz/) and install over the Integrations tab.
+Add this repository to [HACS](https://hacs.xyz/) and install over in the Integrations tab. To configure your credentials, navigate to the HASS Integrations page.
 
 ## Exposed Services
 
