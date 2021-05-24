@@ -8,5 +8,6 @@
   "zeroconf": [],
   "homekit": {},
   "dependencies": [],
-  "codeowners": ["@BeryJu"]
+  "codeowners": ["@BeryJu"],
+  "version": "1.2"
 }
