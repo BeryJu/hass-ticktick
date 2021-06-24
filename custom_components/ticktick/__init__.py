@@ -20,15 +20,17 @@ def handle_add_task(client: TickTick) -> Callable:
         content = call.data.get("content", "")
         project = call.data.get("project", "")
 
-        due_date_raw = call.data.get("due_date", "")
+        due_date_raw = str(call.data.get("due_date", ""))
         due_date = None
         if due_date_raw != "":
-            if due_date_raw.startswith("+"):
+            if due_date_raw.startswith("+") or due_date_raw.endswith("m"):
+                due_date_raw = due_date_raw.replace("+", "").replace("m", "")
                 # If due_date starts with +, use it as an offest to now
                 due_date = datetime.now() + timedelta(minutes=int(due_date_raw))
             else:
                 # Otherwise we try to parse it absolutely
                 due_date = parser.parse(due_date_raw)
+            _LOGGER.debug("Parsed due_date to %s", due_date)
         _LOGGER.debug("Adding task %s to project %s", title, project)
         return client.add_task(title, content, project, due_date)
 

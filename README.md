@@ -12,7 +12,7 @@ Add this repository to [HACS](https://hacs.xyz/) and install over in the Integra
 
   Adding a task with `title` and `content`. Optionally, a `due_date` can be set.
 
-  The `due_date` can either be in the format of `+123`, which will create a Task due in 123 Minutes.
+  The `due_date` can either be in the format of `123m`, which will create a Task due in 123 Minutes.
 
   Otherwise, you can set `due_date` to an absolute date. This must be in a format supported by [dateutil](https://dateutil.readthedocs.io/en/stable/parser.html#module-dateutil.parser)
 - `ticktick.get_projects`
