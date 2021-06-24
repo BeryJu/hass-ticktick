@@ -21,7 +21,9 @@ async def validate_input(hass: core.HomeAssistant, data):
     """
     try:
         client = TickTick()
-        client.login(data.get("username"), data.get("password"))
+        await hass.async_add_executor_job(
+            client.login, data.get("username"), data.get("password")
+        )
     except RequestException as exc:
         raise CannotConnect from exc
     except ValueError as exc:

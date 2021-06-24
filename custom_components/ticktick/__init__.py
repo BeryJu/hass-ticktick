@@ -59,7 +59,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up TickTick from a config entry."""
 
     client = TickTick()
-    client.login(entry.data.get("username"), entry.data.get("password"))
+
+    await hass.async_add_executor_job(
+        client.login, entry.data.get("username"), entry.data.get("password")
+    )
     if DOMAIN not in hass.data:
         hass.data[DOMAIN] = {}
     hass.data[DOMAIN][entry.entry_id] = client
