@@ -10,7 +10,7 @@ Add this repository to [HACS](https://hacs.xyz/) and install over in the Integra
 
 - `ticktick.add_task`
 
-  Adding a task with title and content. Optionally, a `due_date` can be set.
+  Adding a task with `title` and `content`. Optionally, a `due_date` can be set.
 
   The `due_date` can either be in the format of `+123`, which will create a Task due in 123 Minutes.
 

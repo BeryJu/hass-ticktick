@@ -1,8 +1,6 @@
 """The TickTick integration."""
-import asyncio
 from typing import Callable
-
-from requests import Session
+import logging
 
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
@@ -13,6 +11,7 @@ from .api import TickTick
 from .const import DOMAIN
 
 CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
+_LOGGER = logging.getLogger(__name__)
 
 
 def handle_add_task(client: TickTick) -> Callable:
@@ -30,7 +29,8 @@ def handle_add_task(client: TickTick) -> Callable:
             else:
                 # Otherwise we try to parse it absolutely
                 due_date = parser.parse(due_date_raw)
-        client.add_task(title, content, project, due_date)
+        _LOGGER.debug("Adding task %s to project %s", title, project)
+        return client.add_task(title, content, project, due_date)
 
     return handler
 
