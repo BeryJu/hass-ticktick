@@ -15,6 +15,10 @@ class TickTick:
 
     def __init__(self):
         self._session = requests.Session()
+        self._session.headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+        }
 
     def login(self, username: str, password: str):
         """Log into ticktick api. ValueError is thrown when credentials are incorrect"""
@@ -23,6 +27,21 @@ class TickTick:
             json={
                 "username": username,
                 "password": password,
+            },
+            headers={
+                "x-device": json.dumps(
+                    {
+                        "platform": "web",
+                        "os": "macOS 10.15.7",
+                        "device": "Chrome 92.0.4515.107",
+                        "name": "",
+                        "version": 3925,
+                        "id": "60fdb7be711f1b6380240d3a",
+                        "channel": "website",
+                        "campaign": "",
+                        "websocket": "",
+                    }
+                ),
             },
         )
         if resp.status_code != 200:
