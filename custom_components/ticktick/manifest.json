@@ -3,7 +3,7 @@
   "name": "TickTick",
   "config_flow": true,
   "documentation": "https://github.com/BeryJu/hass-ticktick",
-  "requirements": ["requests==2.22.0"],
+  "requirements": ["requests<3.0.0"],
   "ssdp": [],
   "zeroconf": [],
   "homekit": {},
