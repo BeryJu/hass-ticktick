@@ -525,11 +525,11 @@
         },
         "pylint": {
             "hashes": [
-                "sha256:43ee36c9b690507ef9429ce1802bdc4dcde49454c3d665e39c23791567019c0a",
-                "sha256:55e5cf00601c4cfe2e9404355c743a14e63be85df7409da7e482ebde5f9f14a1"
+                "sha256:bad9d7c36037f6043a1e848a43004dfd5ea5ceb05815d713ba56ca4503a9fe37",
+                "sha256:ffe7fa536bb38ba35006a7c8a6d2efbfdd3d95bbf21199cad31f76b1c50aaf30"
             ],
             "index": "pypi",
-            "version": "==2.16.0"
+            "version": "==2.16.1"
         },
         "python-slugify": {
             "hashes": [
