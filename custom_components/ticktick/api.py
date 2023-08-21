@@ -61,6 +61,23 @@ class TickTick:
             projects[raw_project.get("id")] = raw_project.get("name")
         return projects
 
+    def get_all_tasks(self) -> Dict[str, str]:
+        projects = self.get_projects()
+        all_tasks = {}
+
+        for id,name in projects.items():
+            tasks = self.get_project_tasks(id)
+            all_tasks[name] = tasks
+        return all_tasks
+
+    def get_project_tasks(self, project_id) -> Dict[str, str]:
+        """Return a dict of all tasks and their data"""
+        resp = self._session.get(f"https://api.ticktick.com/api/v2/project/{project_id}/tasks")
+        tasks = []
+        for raw_task in resp.json():
+            tasks.append(raw_task)
+        return tasks
+
     def add_task(
         self,
         task_title: str,
