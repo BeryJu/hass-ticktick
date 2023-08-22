@@ -5,7 +5,7 @@ from typing import Dict
 
 import requests
 
-from .const import ADD_TASK_URL, AUTH_URL, PROJECT_URL, TICKTICK_HOST
+from .const import ADD_TASK_URL, AUTH_URL, PROJECT_URL, TICKTICK_HOST, PROJECT_TASKS_URL
 
 
 class TickTick:
@@ -72,7 +72,8 @@ class TickTick:
 
     def get_project_tasks(self, project_id) -> Dict[str, str]:
         """Return a dict of all tasks and their data"""
-        resp = self._session.get(f"https://api.ticktick.com/api/v2/project/{project_id}/tasks")
+        project_tasks_url = PROJECT_TASKS_URL.replace("@project_id@", project_id)
+        resp = self._session.get(f"https://{TICKTICK_HOST}{project_tasks_url}")
         tasks = []
         for raw_task in resp.json():
             tasks.append(raw_task)
