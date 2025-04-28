@@ -1,3 +1,5 @@
+# See https://github.com/Hantick/ticktick-home-assistant for a maintained version of this custom integration.
+
 # TickTick Integration from Home Assistant
 
 This integration adds a custom service `ticktick.add_task`, which allows you to dynamically add tasks your Todo-list.
